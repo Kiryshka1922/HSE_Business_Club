@@ -1,0 +1,38 @@
+services:
+  backend:
+    restart: always
+    build:
+      context: backend
+      dockerfile: Dockerfile
+    env_file:
+      - .env.docker 
+    depends_on:
+      mongodb: 
+        condition: service_healthy
+    networks:
+      - app-network
+    ports:
+      - "3000:3000"
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    environment:
+      - MONGODB_DATABASE=mock
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    networks:
+      - app-network
+
+networks:
+  app-network: {}
+
+volumes:
+  mongodb_data:
