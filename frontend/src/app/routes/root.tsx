@@ -6,14 +6,43 @@ import {
   Scripts,
   ScrollRestoration,
 } from "react-router";
-
 import type { Route } from "./+types/root";
-import "../styles/app.css";
+
+// Импортируем CSS как модули
+import resetStyles from "src/app/styles/reset.css?url";
+import globalStyles from "src/app/styles/global.css?url";
+import fontStyles from "src/app/styles/font.css?url";
 
 export const links: Route.LinksFunction = () => [
   {
     rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
+    href: resetStyles,
+  },
+  {
+    rel: "stylesheet",
+    href: globalStyles,
+  },
+  {
+    rel: "preload",
+    href: fontStyles,
+    as: "style",
+  },
+  {
+    rel: "stylesheet",
+    href: fontStyles,
+  },
+  {
+    rel: "preconnect",
+    href: "https://fonts.googleapis.com",
+  },
+  {
+    rel: "preconnect",
+    href: "https://fonts.gstatic.com",
+    crossOrigin: "anonymous",
+  },
+  {
+    rel: "stylesheet",
+    href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap",
   },
 ];
 

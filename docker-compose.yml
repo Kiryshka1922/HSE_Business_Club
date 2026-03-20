@@ -11,8 +11,11 @@ services:
         condition: service_healthy
     networks:
       - app-network
+    volumes:
+      - ./backend:/app/backend
     ports:
       - "3000:3000"
+      
   mongodb:
     image: mongo:latest
     container_name: mongodb
@@ -30,6 +33,23 @@ services:
       start_period: 10s
     networks:
       - app-network
+      
+  frontend:
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+      args:
+        - API_URL=http://backend:3000/api  # передаём на этапе сборки
+    ports:
+      - "8080:3000"
+    networks:
+      - app-network
+    depends_on:
+      - backend
+    environment:
+      - API_URL=http://backend:3000/api  # для runtime (SSR)
+      - NODE_ENV=production
+    restart: always
 
 networks:
   app-network: {}

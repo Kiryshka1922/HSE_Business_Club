@@ -1,6 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
-import { type ActivityType } from '../dto/people.dto';
 
 @Schema()
 export class People extends Document {
@@ -23,10 +22,9 @@ export class People extends Document {
   tg_username: string;
 
   @Prop({
-    type: String,
     required: true,
   })
-  type_activity: ActivityType;
+  type_activity: string;
 
   @Prop({ default: '' })
   photo_url: string;

@@ -1,7 +1,9 @@
+import styles from "./StubPage.module.css";
+
 export default function StubPage() {
   return (
-    <div>
-      <h1>StubPage</h1>
+    <div className={styles.StubPage}>
+      <h1>Страница в разработке</h1>
     </div>
   );
 }

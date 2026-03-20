@@ -7,9 +7,20 @@ import { Event } from './schedule/schemas/event.schema';
 import { getModelToken } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { peoples, events } from './mocks';
+import * as fs from 'fs';
+import * as yaml from 'js-yaml';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+
+  app.setGlobalPrefix('api');
+
+  app.enableCors({
+    origin: ['http://localhost:5173', 'http://localhost:8080'], // массив разрешённых origins
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    allowedHeaders: 'Content-Type, Accept, Authorization',
+    credentials: true, // если используете cookies/авторизацию
+  });
 
   const peopleModel = app.get<Model<People>>(getModelToken('Peoples'));
   const eventModel = app.get<Model<Event>>(getModelToken('Events'));
@@ -40,8 +51,13 @@ async function bootstrap() {
     .addTag('app')
     .build();
 
-  const documentFactory = () => SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api', app, documentFactory, {
+  const document = SwaggerModule.createDocument(app, config);
+
+  // Сохраняем как YAML
+  const yamlString = yaml.dump(document);
+  fs.writeFileSync('./openapi.yaml', yamlString);
+
+  SwaggerModule.setup('api', app, document, {
     jsonDocumentUrl: 'api/json',
   });
 

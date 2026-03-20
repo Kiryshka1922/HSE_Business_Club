@@ -1,13 +1,8 @@
-import {
-  type RouteConfig,
-  route,
-  layout,
-  index,
-} from "@react-router/dev/routes";
+import { type RouteConfig, route, layout } from "@react-router/dev/routes";
 
 export default [
   layout("../layouts/Layout.tsx", [
-    index("./home.tsx"),
+    route("/", "../../pages/StubPage/StubPage.tsx", { id: "home" }), // корневой маршрут внутри layout
     route("play", "../../pages/StubPage/StubPage.tsx", { id: "play" }),
     route("search", "../../pages/StubPage/StubPage.tsx", { id: "search" }),
     route("schedule", "../../pages/EventsPage/EventsPage.tsx"),

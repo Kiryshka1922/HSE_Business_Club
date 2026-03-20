@@ -1,0 +1,111 @@
+.eventCard {
+  position: relative;
+
+  display: grid;
+
+  padding: 15px 18px;
+
+  background-color: rgb(145 173 214 / 8%);
+  border-radius: 16px;
+
+  column-gap: 18px;
+  grid-template-columns: auto 1fr auto;
+}
+
+.eventCard__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.eventCard__speaker {
+  font-size: 22px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.eventCard__company {
+  color: rgb(83 131 229 / 100%);
+
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 14px;
+}
+
+.eventCard__title {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 120%;
+  margin-top: 14px;
+}
+
+.eventsPage__events {
+  display: flex;
+  flex-direction: column;
+}
+
+.eventCard__photo {
+  overflow: hidden;
+
+  width: 60px;
+  height: 60px;
+
+  border-radius: 50%;
+
+  background: #f0f0f0; /* Фон на случай, если картинка не загрузится */
+  object-fit: cover;
+  object-position: center;
+}
+
+.eventCard__details {
+  display: flex;
+  gap: 14px;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  svg {
+    width: 11px;
+    height: 11px;
+
+    margin-right: 4px;
+  }
+}
+
+.eventCard__details__item {
+  display: flex;
+  align-items: center;
+}
+
+.eventCard__like {
+  width: 19px;
+  height: 16px;
+
+  transition: all 0.2s ease;
+
+  cursor: pointer;
+}
+
+.eventCard__like:active {
+  transform: scale(1.3);
+}
+
+.eventCard__like_liked {
+  animation: likepop 0.5s ease;
+
+  fill: red;
+  stroke: red;
+}
+
+@keyframes likepop {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}

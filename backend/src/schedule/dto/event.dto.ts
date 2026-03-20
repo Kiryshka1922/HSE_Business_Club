@@ -6,6 +6,7 @@ import {
   Matches,
   IsNotEmpty,
 } from 'class-validator';
+import { Types } from 'mongoose';
 
 export class EventDto {
   @IsString()
@@ -42,4 +43,7 @@ export class EventDto {
   @IsUrl()
   @IsOptional()
   photo_url?: string;
+
+  @IsString()
+  _id?: Types.ObjectId;
 }

@@ -51,6 +51,6 @@ export const events = Array.from({ length: 10 }, (_, i) => {
     place: places[i % places.length],
     isLiked: i % 5 === 0, // каждый второй лайкнут
     photo_url:
-      'https://i.pinimg.com/originals/8d/b6/fe/8db6fe0b07a79dbaf18feff57d077001.png?nii=t',
+      'https://img.freepik.com/premium-psd/portrait-serious-man-with-short-hair-professional-use-transparent-background_1350623-10390.jpg?semt=ais_hybrid',
   };
 });

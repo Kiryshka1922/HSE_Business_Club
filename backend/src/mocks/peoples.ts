@@ -63,6 +63,7 @@ export const peoples = Array.from({ length: 15 }, (_, i) => ({
   description: `Тестовый пользователь #${i + 1}. Люблю развиваться и знакомиться с новыми людьми.`,
   tg_username: `@user_${i + 1}`,
   type_activity: activities[i % activities.length],
-  photo_url: `https://ru.freepik.com/free-photo/handsome-bearded-guy-posing-against-white-wall_11139896.htm#fromView=search&page=1&position=1&uuid=74cf555d-5fd9-4a0e-ab0e-c614769f9a26&query=%D1%87%D0%B5%D0%BB%D0%BE%D0%B2%D0%B5%D0%BA`,
+  photo_url:
+    'https://img.freepik.com/premium-psd/portrait-serious-man-with-short-hair-professional-use-transparent-background_1350623-10390.jpg?semt=ais_hybrid',
   isLiked: i % 3 === 0, // каждый третий лайкнут
 }));

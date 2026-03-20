@@ -1,0 +1,9 @@
+.gradientBox {
+  position: relative;
+
+  padding: var(--border-width);
+
+  border-radius: var(--border-radius);
+
+  background: var(--gradient);
+}

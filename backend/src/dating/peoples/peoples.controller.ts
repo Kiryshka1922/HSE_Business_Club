@@ -1,6 +1,6 @@
-import { Body, Controller, Get, Patch, Post, Param } from '@nestjs/common';
+import { Body, Controller, Get, Patch, Param } from '@nestjs/common';
 import { PeoplesService } from './peoples.service';
-import { PeopleDto, CreatePeopleDto } from '../dto/people.dto';
+import { PeopleDto } from '../dto/people.dto';
 
 @Controller('peoples')
 export class PeoplesController {
@@ -17,10 +17,5 @@ export class PeoplesController {
     @Body('isLiked') isLiked: boolean,
   ): Promise<PeopleDto | null> {
     return this.peopleService.updatePeople(id, isLiked);
-  }
-
-  @Post('create')
-  createPeople(@Body() people: CreatePeopleDto): Promise<CreatePeopleDto> {
-    return this.peopleService.createPeople(people);
   }
 }

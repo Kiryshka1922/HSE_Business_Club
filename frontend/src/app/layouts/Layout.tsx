@@ -31,7 +31,8 @@ const navItems = [
 
 const Layout = () => {
   return (
-    <div className={styles.container}>
+    <div className={styles.layout}>
+      <div className={styles.container}>
       <main className={styles.content}>
         <Outlet />
       </main>
@@ -41,18 +42,17 @@ const Layout = () => {
           <NavLink
             to={item.to}
             className={({ isActive }) =>
-              isActive ? `${styles.navItem} ${styles.active}` : styles.navItem
+              isActive
+                ? `${styles.navbar__item} ${styles.navbar__item_active}`
+                : styles.navbar__item
             }
             key={item.to}
           >
-            <item.icon className={styles.navIcon} />
-            {/* <item.icon className={styles.navIcon} /> */}
-            {/* <span className={styles.navIcon}>
-              <img src={item.icon} />
-            </span> */}
+            <item.icon alt={item.to} />
           </NavLink>
         ))}
       </nav>
+    </div>
     </div>
   );
 };

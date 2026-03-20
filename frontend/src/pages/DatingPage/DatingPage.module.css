@@ -1,0 +1,108 @@
+.datePage {
+  position: relative;
+
+  display: flex;
+  gap: 14px;
+  flex-direction: column;
+
+  padding-top: 44px;
+  padding-right: 16px;
+
+  color: white;
+
+  max-height: calc(100vh - 87px);
+
+  h1 {
+    font-family: Inter;
+    font-size: 50px;
+    font-weight: 600;
+  }
+}
+
+.datePage__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.datePage__title__icon {
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+
+  width: 42px;
+  height: 42px;
+
+  background-color: #5383e5;
+  border-radius: 50%;
+}
+
+.PeopleCard__buttons {
+  display: flex;
+  justify-content: space-around;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.PeopleCard__button {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px 0;
+
+  border: 2px solid rgb(255 255 255 / 30%);
+  border-radius: 40px;
+
+  transition:
+    transform 0.2s ease,
+    transform 0.2s ease;
+
+  cursor: pointer;
+}
+
+.PeopleCard__button:hover {
+  opacity: 0.9;
+}
+
+.PeopleCard__button:active {
+  transform: scale(0.98);
+}
+
+.PeopleCard__button_date {
+  background-color: #5383e5;
+}
+
+.diamond {
+  position: absolute;
+  top: 0;
+  top: -90px;
+  right: 0;
+  right: -40px;
+
+  width: 160px;
+  height: 240px;
+
+  background: radial-gradient(at 80% 130%, rgb(83 131 229 / 30%), transparent);
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  pointer-events: none;
+  rotate: 325deg;
+}
+
+.diamond_2 {
+  top: -40px;
+  left: -80px;
+
+  background: radial-gradient(at 80% 130%, rgb(83 131 229 / 10%), transparent);
+  rotate: 339deg;
+}
+
+.diamond_3 {
+  top: -30px;
+  left: -100px;
+
+  background: radial-gradient(at 80% 130%, rgb(83 131 229 / 10%), transparent);
+  rotate: 369deg;
+}
